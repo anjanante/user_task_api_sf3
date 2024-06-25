@@ -17,3 +17,8 @@ services:
         parent:    'api_platform.doctrine.orm.order_filter'
         arguments: [ { id: ~, priority: 'DESC' } ]
         tags:      [ { name: 'api_platform.filter', id: 'task.order' } ]
+
+    task.date_filter:
+        parent:    'api_platform.doctrine.orm.date_filter'
+        arguments: [ { createdAt: ~ } ]
+        tags:      [ { name: 'api_platform.filter', id: 'task.date' } ]

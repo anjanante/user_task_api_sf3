@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Task
  * 
- * @ApiResource(attributes={"filters"={"task.search", "task.range", "task.order"}})
+ * @ApiResource(attributes={"filters"={"task.search", "task.range", "task.order", "task.date"}})
  * @ORM\Table(name="task")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TaskRepository")
  */
@@ -48,6 +48,13 @@ class Task
      * @ORM\ManyToOne(targetEntity="User")
      */
     private $user;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     */
+    private $createdAt;
 
 
     /**
@@ -150,6 +157,32 @@ class Task
     public function setUser($user)
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    
+
+    /**
+     * Get the value of createdAt
+     *
+     * @return  \DateTime
+     */ 
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set the value of createdAt
+     *
+     * @param  \DateTime  $createdAt
+     *
+     * @return  self
+     */ 
+    public function setCreatedAt(\DateTime $createdAt)
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
