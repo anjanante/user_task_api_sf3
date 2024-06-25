@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Task
  * 
- * @ApiResource(attributes={"filters"={"task.search"}})
+ * @ApiResource(attributes={"filters"={"task.search", "task.range"}})
  * @ORM\Table(name="task")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TaskRepository")
  */
