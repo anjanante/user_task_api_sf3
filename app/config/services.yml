@@ -12,3 +12,8 @@ services:
         parent:    'api_platform.doctrine.orm.range_filter'
         arguments: [ { priority: ~ } ]
         tags:      [ { name: 'api_platform.filter', id: 'task.range' } ]
+
+    task.order_filter:
+        parent:    'api_platform.doctrine.orm.order_filter'
+        arguments: [ { id: ~, priority: 'DESC' } ]
+        tags:      [ { name: 'api_platform.filter', id: 'task.order' } ]
