@@ -3,22 +3,22 @@
 parameters:
 
 services:
-    task.search_filter:
+    generic.search_filter:
         parent:    'api_platform.doctrine.orm.search_filter'
-        arguments: [ { id: 'exact', priority: 'exact', name: 'partial', time: 'exact', user: 'exact'  } ]
-        tags:      [ { name: 'api_platform.filter', id: 'task.search' } ]
+        arguments: [ ~ ]
+        tags:      [ { name: 'api_platform.filter', id: 'generic.search' } ]
 
-    task.numeric_filter:
+    generic.numeric_filter:
         parent:    'api_platform.doctrine.orm.range_filter'
-        arguments: [ { priority: ~ } ]
-        tags:      [ { name: 'api_platform.filter', id: 'task.range' } ]
+        arguments: [ ~ ]
+        tags:      [ { name: 'api_platform.filter', id: 'generic.range' } ]
 
-    task.order_filter:
+    generic.order_filter:
         parent:    'api_platform.doctrine.orm.order_filter'
-        arguments: [ { id: ~, priority: 'DESC' } ]
-        tags:      [ { name: 'api_platform.filter', id: 'task.order' } ]
+        arguments: [ ~ ]
+        tags:      [ { name: 'api_platform.filter', id: 'generic.order' } ]
 
-    task.date_filter:
+    generic.date_filter:
         parent:    'api_platform.doctrine.orm.date_filter'
-        arguments: [ { createdAt: ~ } ]
-        tags:      [ { name: 'api_platform.filter', id: 'task.date' } ]
+        arguments: [ ~ ]
+        tags:      [ { name: 'api_platform.filter', id: 'generic.date' } ]
