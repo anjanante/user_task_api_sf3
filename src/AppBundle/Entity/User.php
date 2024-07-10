@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 
 /**
@@ -27,6 +28,7 @@ class User
     /**
      * @var string
      *
+     * @Groups({"task"})
      * @ORM\Column(name="firstname", type="string", length=255)
      */
     private $firstname;
@@ -34,6 +36,7 @@ class User
     /**
      * @var string
      *
+     * @Groups({"task"})
      * @ORM\Column(name="lastname", type="string", length=255)
      */
     private $lastname;

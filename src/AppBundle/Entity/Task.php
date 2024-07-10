@@ -13,11 +13,18 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ApiResource(
  *     attributes={
  *         "filters"={"task.search", "task.range", "task.order", "task.date"},
- *         "normalization_context"={"groups"={"read"}},
+ *         "normalization_context"={"groups"={"read", "task"}},
  *         "denormalization_context"={"groups"={"write"}}
  *     },
  *     itemOperations={
- *          "put"={"method"="PUT", "denormalization_context"={"groups"={"put"}}}
+ *          "get"={
+ *              "method"="GET", 
+ *              "normalization_context"={"groups"={"read"}}
+ *          },
+ *          "put"={
+ *              "method"="PUT", 
+ *              "denormalization_context"={"groups"={"put"}}
+ *          }
  *     }
  * )
  * @ORM\Table(name="task")
@@ -60,7 +67,7 @@ class Task
     private $priority;
 
      /**
-     * @Groups({"read", "write"})
+     * @Groups({"read", "write", "task"})
      * @ORM\ManyToOne(targetEntity="User")
      */
     private $user;
