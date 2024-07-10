@@ -9,7 +9,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 /**
  * User
  * 
- * @ApiResource(attributes={"filters"={"generic.search", "generic.range", "generic.order", "generic.date"}})
+ * @ApiResource
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */

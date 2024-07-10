@@ -4,11 +4,19 @@ namespace AppBundle\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * Task
  * 
- * @ApiResource(attributes={"filters"={"generic.search", "generic.range", "generic.order", "generic.date"}})
+ * @ApiResource(
+ *     attributes={
+ *         "filters"={"task.search", "task.range", "task.order", "task.date"},
+ *         "normalization_context"={"groups"={"read"}},
+ *         "denormalization_context"={"groups"={"write"}}
+ *     }
+ * )
  * @ORM\Table(name="task")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TaskRepository")
  */
@@ -17,6 +25,7 @@ class Task
     /**
      * @var int
      *
+     * @Groups({"read"})
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -26,6 +35,7 @@ class Task
     /**
      * @var string
      *
+     * @Groups({"read", "write"})
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
@@ -33,6 +43,7 @@ class Task
     /**
      * @var string
      *
+     * @Groups({"read", "write"})
      * @ORM\Column(name="time", type="string", length=255)
      */
     private $time;
@@ -40,11 +51,13 @@ class Task
     /**
      * @var string
      *
+     * @Groups({"read", "write"})
      * @ORM\Column(name="priority", type="string", length=255)
      */
     private $priority;
 
      /**
+     * @Groups({"read", "write"})
      * @ORM\ManyToOne(targetEntity="User")
      */
     private $user;
@@ -52,6 +65,7 @@ class Task
     /**
      * @var \DateTime
      *
+     * @Groups({"read"})
      * @ORM\Column(name="created_at", type="datetime", nullable=true)
      */
     private $createdAt;
