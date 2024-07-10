@@ -15,6 +15,9 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *         "filters"={"task.search", "task.range", "task.order", "task.date"},
  *         "normalization_context"={"groups"={"read"}},
  *         "denormalization_context"={"groups"={"write"}}
+ *     },
+ *     itemOperations={
+ *          "put"={"method"="PUT", "denormalization_context"={"groups"={"put"}}}
  *     }
  * )
  * @ORM\Table(name="task")
@@ -43,7 +46,7 @@ class Task
     /**
      * @var string
      *
-     * @Groups({"read", "write"})
+     * @Groups({"read", "write", "put"})
      * @ORM\Column(name="time", type="string", length=255)
      */
     private $time;
@@ -51,7 +54,7 @@ class Task
     /**
      * @var string
      *
-     * @Groups({"read", "write"})
+     * @Groups({"read", "write", "put"})
      * @ORM\Column(name="priority", type="string", length=255)
      */
     private $priority;
