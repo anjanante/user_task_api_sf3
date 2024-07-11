@@ -14,7 +14,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *     attributes={
  *         "filters"={"task.search", "task.range", "task.order", "task.date"},
  *         "normalization_context"={"groups"={"read", "task"}},
- *         "denormalization_context"={"groups"={"write"}}
+ *         "denormalization_context"={"groups"={"write"}},
+ *         "pagination_items_per_page"=20
  *     },
  *     itemOperations={
  *          "get"={

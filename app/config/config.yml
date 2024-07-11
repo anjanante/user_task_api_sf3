@@ -83,7 +83,7 @@ nelmio_cors:
 api_platform:
     collection:
         pagination:
-            items_per_page: 10 # Default
+            items_per_page: 10 # Default For all
             client_items_per_page: true # Allow client to add the number per page
             items_per_page_parameter_name: itemsPerPage
             
