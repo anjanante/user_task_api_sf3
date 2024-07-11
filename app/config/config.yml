@@ -79,3 +79,11 @@ nelmio_cors:
         max_age:        3600
     paths:
         '^/': ~
+
+api_platform:
+    collection:
+        pagination:
+            items_per_page: 10 # Default
+            client_items_per_page: true # Allow client to add the number per page
+            items_per_page_parameter_name: itemsPerPage
+            
