@@ -3,8 +3,10 @@
 namespace AppBundle\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -46,6 +48,7 @@ class Task
     /**
      * @var string
      *
+     * @Assert\NotBlank(message = "This field must not be blank")
      * @Groups({"read", "write"})
      * @ORM\Column(name="name", type="string", length=255)
      */
@@ -54,6 +57,7 @@ class Task
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @Groups({"read", "write", "put"})
      * @ORM\Column(name="time", type="string", length=255)
      */
@@ -61,13 +65,22 @@ class Task
 
     /**
      * @var string
+     * 
+     * @Assert\NotBlank()
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 10,
+     *      minMessage = "It must be at least {{ limit }}",
+     *      maxMessage = "It cannot be greater than {{ limit }}"
+     * )
      *
      * @Groups({"read", "write", "put"})
-     * @ORM\Column(name="priority", type="string", length=255)
+     * @ORM\Column(name="priority", type="integer", length=255)
      */
     private $priority;
 
      /**
+     * @Assert\NotBlank()
      * @Groups({"read", "write", "task"})
      * @ORM\ManyToOne(targetEntity="User")
      */
@@ -77,10 +90,14 @@ class Task
      * @var \DateTime
      *
      * @Groups({"read"})
-     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+     * @ORM\Column(name="created_at", type="datetime")
      */
     private $createdAt;
 
+    public function __construct()
+    {
+        $this->createdAt = new DateTime();
+    }
 
     /**
      * Get id

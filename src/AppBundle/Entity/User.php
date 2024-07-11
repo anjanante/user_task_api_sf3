@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -27,7 +28,7 @@ class User
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @Groups({"task"})
      * @ORM\Column(name="firstname", type="string", length=255)
      */
@@ -35,7 +36,7 @@ class User
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @Groups({"task"})
      * @ORM\Column(name="lastname", type="string", length=255)
      */
