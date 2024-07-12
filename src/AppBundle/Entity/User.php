@@ -100,5 +100,9 @@ class User
     {
         return $this->lastname;
     }
+
+    public function getFullName(){
+        return sprintf("%s %s", $this->getFirstname(), $this->getLastname());
+    }
 }
 

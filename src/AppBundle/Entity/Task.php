@@ -21,8 +21,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     },
  *     itemOperations={
  *          "get"={
- *              "method"="GET", 
- *              "normalization_context"={"groups"={"read"}}
+ *              "method"="GET"
  *          },
  *          "put"={
  *              "method"="PUT", 
