@@ -103,3 +103,6 @@ fos_user:
     from_email:
         address: "test@nantedevy"
         sender_name: test@nantedevy"
+
+hautelook_alice:
+    fixtures_path: 'Resources/fixtures/orm'
