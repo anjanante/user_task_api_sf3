@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+    <h1>Hi Ajax Process...</h1>
+<script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+<script>
+    $.ajax({
+        url: 'http://127.0.0.1:8000/app_dev.php/tasks',
+        type: 'GET',
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJSUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwidXNlcm5hbWUiOiJ1c2VyMiIsImV4cCI6MTgyMTA0NjU0NSwiaWF0IjoxNzIxMDQ2NTQ2fQ.q9vFrHn417ygFW7HXsROAGA_KlrqzoQrV5M7i1y0IyT389rdNbqluil3Gc9mq30RAJSdeBi2IinpkJwjWikxFTQpuWwrenItMNHECznynsrMZA7xRurBw8PnxdsMPqNwMER42Kz66NewZvnMXFf6YVM4Zy8dYpYPmUnI8pAtwkQbold6Xc7YtOliJrOcvc7cgoIl1BYacqbhTs6AqDuZP1GXsTJfwOik6uw7Vw_xKkWuFomS17kqSD0D-cDFJhtKo6UmFv_LFON2gZuZLwg9-nYfoj_mKCJ1dJAdslJpe7_JYcVm2G5GELE3QjnxQL1T5dOMvYfS8CPoCCWgN5uDS9iDpS1c2JlGXqV-kjFxLfEqFx6-LCSS2GsuVWWeOQr4BAdgWRwU7Q2LQkoeijw2pzNFxWEDuMX7YW6I3lwYaNPQ6HTIZaF1bb_WGF-pd2vfdOyCHWIQeeYkonUzD1qdYA8nGl6Lc3gT7DDreqP8G-7RsgK_WqZhUeYQBG9ISxaL0xfe7ffIqS6EebxvHx9CB295yjKtZ-rD9GWXGqmmeIb5MtbRkz3QzFUInKx-aDrJZy3y_9IBj5Nf9cZh-MsL8cCMWEIvkPY8CilNn7rs-zyzCEwMlJSB9hg7uvca5XbZnXGU-foiYnymucXEP9sT20ArxQiYoCIbW5m2g_IIT7A')
+        },
+        success:function(data){
+            console.log(data);
+        }
+    });
+</script>
+</body>
+</html>

@@ -12,3 +12,7 @@ app:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+api_ajax:
+    path: /api_ajax
+    defaults: { _controller: AppBundle:Default:test }
