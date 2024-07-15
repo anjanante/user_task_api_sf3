@@ -22,21 +22,19 @@ security:
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
                 require_previous_session: false
         main:
-            pattern: ^/
-            form_login:
-                provider: fos_userbundle
-                csrf_token_generator: security.csrf.token_manager
-                # if you are using Symfony < 2.8, use the following config instead:
-                # csrf_provider: form.csrf_provider
-
-            logout:       true
-            anonymous:    true
+            pattern:   ^/
+            provider: fos_userbundle
+            stateless: true
+            anonymous: true
+            lexik_jwt: ~
 
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
     access_control:
+        - { path: ^/users$, role: IS_AUTHENTICATED_FULLY }
+        - { path: ^/tasks$, role: IS_AUTHENTICATED_FULLY }
         - { path: ^/api/doc$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
