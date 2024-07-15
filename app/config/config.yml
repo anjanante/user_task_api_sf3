@@ -93,3 +93,13 @@ api_platform:
         jsonhal:  ['application/hal+json']
         json:     ['application/json']
         html:     ['text/html']
+
+nelmio_api_doc: ~
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: AppBundle\Entity\User
+    from_email:
+        address: "test@nantedevy"
+        sender_name: test@nantedevy"
